@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'efaas' => [
+        'client_id' => env('EFAAS_CLIENT_ID'),
+        'client_secret' => env('EFAAS_CLIENT_SECRET'),
+        'redirect' => env('EFAAS_REDIRECT_URI'),
+        'mode' => env('EFAAS_MODE', 'development'), // supports production, development
+    ],
+
 ];

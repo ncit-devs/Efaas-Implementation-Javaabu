@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -50,5 +51,29 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+
+    /**
+     * Redirect user to eFaas Login
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function redirect() {
+
+        return Socialite::driver('efaas')->redirect();
+    }
+
+    /**
+     * Process the eFaas Callback
+     * @param Request $request
+     */
+    public function callback(Request $request) {
+        $efaas_user = Socialite::driver('efaas')->user();
+
+        // handle the process of creating or updating user here.
+
+
+        // dumping the data to view for demo
+        dd($efaas_user);
     }
 }
