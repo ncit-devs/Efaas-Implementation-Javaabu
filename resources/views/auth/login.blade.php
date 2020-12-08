@@ -3,7 +3,7 @@
 
         <img src="{{ asset('/img/eflogo.png') }}" class="w-25 mb-12" alt="EFaas">
 
-        <a href="{{ url('/login/efaas') }}" class="hover:bg-gray-500 uppercase bg-transparent hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
+        <a href="{{ url('/oauth/efaas') }}" class="hover:bg-gray-500 uppercase bg-transparent hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
             Click to login wih EFaas
         </a>
     </section>

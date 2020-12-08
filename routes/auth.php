@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/oauth/efaas/callback', [AuthenticatedSessionController::class, 'handleProviderCallback'])
     ->name('efaas.callback');
 
-Route::get('/login/efaas', [AuthenticatedSessionController::class, 'redirectToProvider'])
-    ->name('efaas.login');
+Route::get('/oauth/efaas', [AuthenticatedSessionController::class, 'redirectToProvider'])
+    ->name('efaas.redirect');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
