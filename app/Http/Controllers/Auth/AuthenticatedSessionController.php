@@ -46,9 +46,15 @@ class AuthenticatedSessionController extends Controller
     {
         Auth::logout();
 
+        $efaas_token = session('efaas_token');
+
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        if ($efaas_token) {
+            return Socialite::driver('efaas')->logOut($efaas_token, url('/'));
+        }
 
         return redirect('/');
     }
@@ -58,7 +64,7 @@ class AuthenticatedSessionController extends Controller
      * Redirect user to eFaas Login
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function redirect() {
+    public function redirectToProvider() {
 
         return Socialite::driver('efaas')->redirect();
     }
@@ -67,8 +73,11 @@ class AuthenticatedSessionController extends Controller
      * Process the eFaas Callback
      * @param Request $request
      */
-    public function callback(Request $request) {
+    public function handleProviderCallback(Request $request) {
         $efaas_user = Socialite::driver('efaas')->user();
+        $access_token = $efaas_user->token;
+
+        session('efaas_token', $access_token);
 
         // handle the process of creating or updating user here.
 

@@ -3,11 +3,8 @@
 
         <img src="{{ asset('/img/eflogo.png') }}" class="w-25 mb-12" alt="EFaas">
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <button href="#" class="hover:bg-gray-500 uppercase bg-transparent hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
-                Click to login wih EFaas
-            </button>
-        </form>
+        <a href="{{ url('/login/efaas') }}" class="hover:bg-gray-500 uppercase bg-transparent hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
+            Click to login wih EFaas
+        </a>
     </section>
 </x-guest-layout>
