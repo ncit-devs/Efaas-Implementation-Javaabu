@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0c7fc2d-d629-4826-b2a8-248e6426feaf" name="Default Changelist" comment="- Initial Code Push">
-      <change afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -156,6 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607416381502</updated>
       <workItem from="1607416382653" duration="1805000" />
+      <workItem from="1607421842090" duration="180000" />
     </task>
     <task id="LOCAL-00001" summary="- Initial Code Push">
       <created>1607417562988</created>
