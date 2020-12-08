@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0c7fc2d-d629-4826-b2a8-248e6426feaf" name="Default Changelist" comment="" />
+    <list default="true" id="f0c7fc2d-d629-4826-b2a8-248e6426feaf" name="Default Changelist" comment="- Initial Code Push">
+      <change afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,11 +155,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607416381502</updated>
-      <workItem from="1607416382653" duration="707000" />
+      <workItem from="1607416382653" duration="1805000" />
     </task>
+    <task id="LOCAL-00001" summary="- Initial Code Push">
+      <created>1607417562988</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607417562988</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Initial Code Push" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Initial Code Push" />
   </component>
 </project>
