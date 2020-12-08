@@ -4,9 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
+use Javaabu\EfaasSocialite\EfaasUser;
+use Javaabu\EfaasSocialite\Enums\UserStates;
+use Javaabu\EfaasSocialite\Enums\UserTypes;
+use Javaabu\EfaasSocialite\Enums\VerificationLevels;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthenticatedSessionController extends Controller
@@ -70,19 +77,67 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * Fake data
+     *
+     * @return array
+     */
+    protected function getFakeData()
+    {
+        return [
+            'name' => 'Arushad Ahmed',
+            'given_name' => 'Arushad',
+            'middle_name' => '',
+            'family_name' => 'Ahmed',
+            'idnumber' => 'A00000',
+            'gender' => 'M',
+            'address' => 'Honey Rose',
+            'phone_number' => '777777',
+            'email' => 'arushad@example.com',
+            'fname_dhivehi' => 'އަރުޝަދު',
+            'mname_dhivehi' => '',
+            'lname_dhivehi' => 'އަޙްމަދު',
+            'user_type' => UserTypes::MALDIVIAN,
+            'verification_level' => VerificationLevels::VERIFIED_IN_PERSON,
+            'user_state' => UserStates::ACTIVE,
+            'birthdate' => '19/10/1993',
+            'is_workpermit_active' => false,
+            'updated_at' =>  '20/10/2017',
+        ];
+    }
+
+    /**
      * Process the eFaas Callback
      * @param Request $request
      */
     public function handleProviderCallback(Request $request) {
-        $efaas_user = Socialite::driver('efaas')->user();
-        $access_token = $efaas_user->token;
+        try {
+            /** @var EfaasUser $efaas_user */
+            $efaas_user = Socialite::driver('efaas')->user();
 
-        session('efaas_token', $access_token);
+            /*$fake_data = $this->getFakeData();
+            $efaas_user = (new \Javaabu\EfaasSocialite\EfaasUser)->setRaw($fake_data)->map($fake_data);*/
 
-        // handle the process of creating or updating user here.
+            $access_token = $efaas_user->token;
 
+            // find and update the user
+            $user = User::findEfaasUserAndUpdate($efaas_user);
 
-        // dumping the data to view for demo
-        dd($efaas_user);
+            // login
+            Auth::guard()->login($user, true);
+
+            $request->session()->regenerate();
+
+            session('efaas_token', $access_token);
+
+            // redirect to home
+            return redirect(RouteServiceProvider::HOME);
+
+        }catch (\Exception $e) {
+            Log::error('eFaas Login Error: '.$e->getMessage());
+
+            throw ValidationException::withMessages([
+                'efaas' => 'eFaas Login Failed: '.$e->getMessage(),
+            ]);
+        }
     }
 }

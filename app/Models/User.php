@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Javaabu\EfaasSocialite\EfaasUser;
 
 class User extends Authenticatable
 {
@@ -39,5 +40,26 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'efaas_data' => 'array',
     ];
+
+    /**
+     * @param EfaasUser $efaas_user
+     * @return User
+     */
+    public static function findEfaasUserAndUpdate(EfaasUser $efaas_user): User
+    {
+        $user = static::where('email', $efaas_user->getEmail())->first();
+
+        if (! $user) {
+            $user = new User();
+            $user->email = $efaas_user->getEmail();
+        }
+
+        $user->name = $efaas_user->getName();
+        $user->efaas_data = $efaas_user->getRaw();
+        $user->markEmailAsVerified();
+
+        return $user;
+    }
 }

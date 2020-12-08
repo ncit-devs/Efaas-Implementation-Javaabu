@@ -6,6 +6,12 @@
                 <img src="{{ asset('/img/eflogo.png') }}" class="w-1/2 max-w-full mb-12" alt="EFaas">
                 <h1 class="block">eFaas Demo Implementation</h1>
                 <span class="block font-normal text-2xl text-gray-400">View the code <a class="text-blue-800 hover:underline" href="https://github.com/ncit-devs/Efaas-Implementation-Javaabu" target="_blank">here</a></span>
+                @if($errors->has('efaas'))
+                    <div class="mt-3 block font-normal text-red-400 text-xl">
+                        <span class="font-bold block">The following errors occured during eFaas Login:</span>
+                        {{ $errors->first('efaas') }}
+                    </div>
+                @endif
             </div>
             <div class="mt-8 lex lg:ml-6 lg:mt-0 lg:flex-shrink-0">
                 <div class="inline-flex rounded-md shadow">
