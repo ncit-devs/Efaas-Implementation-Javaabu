@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de1a6bc4aaa751429f7ff2ed472e696b",
+    "content-hash": "33c94c09de6be7c94a85db17c8456fa0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -894,16 +894,16 @@
         },
         {
             "name": "javaabu/efaas-socialite",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Javaabu/EFaas-Socialite.git",
-                "reference": "9b7227868b57dc9a8ccf1f1226465eeb1219abb3"
+                "reference": "ba69aff06c56c6be685d8f15d663312bdebb5d69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Javaabu/EFaas-Socialite/zipball/9b7227868b57dc9a8ccf1f1226465eeb1219abb3",
-                "reference": "9b7227868b57dc9a8ccf1f1226465eeb1219abb3",
+                "url": "https://api.github.com/repos/Javaabu/EFaas-Socialite/zipball/ba69aff06c56c6be685d8f15d663312bdebb5d69",
+                "reference": "ba69aff06c56c6be685d8f15d663312bdebb5d69",
                 "shasum": ""
             },
             "require": {
@@ -940,11 +940,7 @@
             ],
             "description": "eFaas Provider for Laravel Socialite",
             "homepage": "https://github.com/Javaabu/EFaas-Socialite",
-            "support": {
-                "issues": "https://github.com/Javaabu/EFaas-Socialite/issues",
-                "source": "https://github.com/Javaabu/EFaas-Socialite/tree/v1.1.1"
-            },
-            "time": "2020-12-08T10:17:22+00:00"
+            "time": "2020-12-08T12:33:27+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7532,5 +7528,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }
