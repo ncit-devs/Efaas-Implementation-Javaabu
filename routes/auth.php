@@ -10,11 +10,11 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/oauth/efaas/callback', [AuthenticatedSessionController::class, 'callback'])
+Route::post('/oauth/efaas/callback', [AuthenticatedSessionController::class, 'handleProviderCallback'])
     ->name('efaas.callback');
 
-Route::post('/login', [AuthenticatedSessionController::class, 'redirect'])
-    ->middleware('guest');
+Route::get('/oauth/efaas', [AuthenticatedSessionController::class, 'redirectToProvider'])
+    ->name('efaas.redirect');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
