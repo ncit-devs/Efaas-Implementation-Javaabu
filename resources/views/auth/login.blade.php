@@ -5,6 +5,14 @@
             <div class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 <img src="{{ asset('/img/eflogo.png') }}" class="w-1/2 max-w-full mb-12" alt="EFaas">
                 <h1 class="block">eFaas Demo Implementation</h1>
+                <span class="block font-normal text-2xl">
+                    <span class="font-bold text-gray-800">Demo User:</span>
+                    <span class="text-gray-400">A000333</span>
+                </span>
+                <span class="block font-normal text-2xl">
+                    <span class="font-bold text-gray-800">Demo Password:</span>
+                    <span class="text-gray-400">@123456</span>
+                </span>
                 <span class="block font-normal text-2xl text-gray-400">View the code <a class="text-blue-800 hover:underline" href="https://github.com/ncit-devs/Efaas-Implementation-Javaabu" target="_blank">here</a></span>
                 @if($errors->has('efaas'))
                     <div class="mt-3 block font-normal text-red-400 text-xl">

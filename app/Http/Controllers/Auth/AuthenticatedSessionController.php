@@ -138,9 +138,6 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('login')->withErrors([
                 'efaas' => 'eFaas Login Failed: '.$e->getMessage(),
             ]);
-            /*throw ValidationException::withMessages([
-                'efaas' => 'eFaas Login Failed: '.$e->getMessage(),
-            ]);*/
         }
     }
 }
